@@ -65,18 +65,9 @@ p {
   text-align: center;
 }
 
-#DataTables_Table_0_wrapper {
-  margin-top: 10px;
-}
 
-#DataTables_Table_1_wrapper {
-  margin-top: 10px;
-}
-
-#DataTables_Table_2_wrapper {
-  margin-top: 10px;
-}
-
-#DataTables_Table_3_wrapper {
+#DataTables_Table_0_wrapper, #DataTables_Table_1_wrapper, #DataTables_Table_2_wrapper, 
+#DataTables_Table_3_wrapper, #DataTables_Table_4_wrapper, #DataTables_Table_5_wrapper, 
+#DataTables_Table_6_wrapper, #DataTables_Table_7_wrapper, #DataTables_Table_8_wrapper {
   margin-top: 10px;
 }
