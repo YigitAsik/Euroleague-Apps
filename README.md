@@ -13,7 +13,7 @@ Provides totals of traditional metrics such as points, assists etc. GP (games pl
 
 ### Advanced
 
-Provides aggregated data over *possession importance*, which allows you to filter out *garbage time*, see which type of possessions teams drive their metrics from. Along with usual field goal percentages, advanced metrics are also included. Such as ORTG (offensive rating, per 75), TS_PCT (true shooting percentage), AST_PCT (assist per possession), TO_PCT (turnover per possession).
+Provides aggregated data over *possession importance*, which allows you to filter out *garbage time*, see which type of possessions teams drive their metrics from. Along with usual field goal percentages, advanced metrics are also included. Such as ORTG (offensive rating, per 75), TS_PCT (true shooting percentage), AST_PP (assist per possession), TOV_PP (turnover per possession).
 
 ### Scoring
 
