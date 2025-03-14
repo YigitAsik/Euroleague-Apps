@@ -71,3 +71,7 @@ p {
 #DataTables_Table_6_wrapper, #DataTables_Table_7_wrapper, #DataTables_Table_8_wrapper {
   margin-top: 10px;
 }
+
+.panel-group.sbs-panel-group.shiny-bound-input {
+  margin-top: 10px;
+}
