@@ -17,7 +17,7 @@ ui <- fluidPage(
   navbarPage(
     title = tagList(
       div(id = 'nameApp', h3('EuroLeague Shiny App')),
-      div(id = 'information', p(paste('Most recent update: ', '2025-03-13')))
+      div(id = 'information', p(paste('Most recent update: ', '2025-03-15')))
     ),
     
     tabPanel(
@@ -33,8 +33,6 @@ ui <- fluidPage(
       source('UI/glossary.R', local = TRUE, encoding = 'UTF-8')$value
     )
   )
-  
-  # 
   
 )
 
