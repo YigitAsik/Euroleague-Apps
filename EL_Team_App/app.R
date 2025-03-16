@@ -17,7 +17,8 @@ ui <- fluidPage(
   navbarPage(
     title = tagList(
       div(id = 'nameApp', h3('EuroLeague Shiny App')),
-      div(id = 'information', p(paste('Most recent update: ', '2025-03-15')))
+      div(id = 'information', p(paste('Most recent update: ', '2025-03-15'))),
+      div(id = 'signature', p('@Hooplytics'))
     ),
     
     tabPanel(

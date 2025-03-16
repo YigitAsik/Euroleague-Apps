@@ -17,6 +17,11 @@ p {
   text-align: center;
 }
 
+#signature > p {
+  font-size: 16px;
+  text-align: center;
+}
+
 .navbar-default {
     background-color: #014cfd;
 }
