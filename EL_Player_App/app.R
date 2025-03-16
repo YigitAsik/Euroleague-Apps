@@ -30,6 +30,10 @@ ui <- fluidPage(
       source('UI/defense.R', local = TRUE, encoding = 'UTF-8')$value
     ),
     tabPanel(
+      'Tools',
+      source('UI/tools.R', local = TRUE, encoding = 'UTF-8')$value
+    ),
+    tabPanel(
       'Glossary',
       source('UI/glossary.R', local = TRUE, encoding = 'UTF-8')$value
     )

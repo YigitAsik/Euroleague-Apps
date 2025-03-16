@@ -80,3 +80,34 @@ p {
 .panel-group.sbs-panel-group.shiny-bound-input {
   margin-top: 10px;
 }
+
+#relativeTo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+#onWithout {
+  text-align: center;
+}
+
+#onWith {
+  text-align: center;
+}
+
+#buttonPlot {
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#four {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
