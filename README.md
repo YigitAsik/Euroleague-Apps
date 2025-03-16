@@ -2,8 +2,9 @@
 
 This repo includes some of the source code for the Euroleague Shiny Apps that I currently have:
 [Team Stats App](https://hooplytics.shinyapps.io/EL_Team_Stats/) consist of team-level offense and defense stats with four tabs: Traditional, Advanced, Scoring, By Zone.
+[Player Stats App](https://hooplytics.shinyapps.io/EL_Player_Stats/) consist of player-level offense and defense stats with the same tabs.
 
-Glossary will be added soon.
+Tools that I included in the earlier versions, such as xPTS and Hex-binned shot-chart, will be added.
 
 ## Tabs
 
