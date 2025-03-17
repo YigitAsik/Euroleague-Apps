@@ -148,16 +148,16 @@ observeEvent(input$plot, {
       
       player_shots <- shots_data() %>%
         filter(PLAYER_TEAM == input$player_name) %>%
-        filter_at(vars(Team_A1, Team_A2, Team_A3, Team_A4, Team_A5,
-                       Team_B1, Team_B2, Team_B3, Team_B4, Team_B5),
+        filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
+                       Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   all_vars(!. %in% input$without))
       
     } else if (!is.null(input$with)) {
       
       player_shots <- shots_data() %>%
         filter(PLAYER_TEAM == input$player_name) %>%
-        filter_at(vars(Team_A1, Team_A2, Team_A3, Team_A4, Team_A5,
-                       Team_B1, Team_B2, Team_B3, Team_B4, Team_B5),
+        filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
+                       Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   any_vars(. %in% input$with))
     } else {
       

@@ -15,6 +15,7 @@ tabPanel(
               radioButtons(inputId = 'against', label = 'Relative to: ', 
                            choices = c('League Avg.', 'Team Avg.', 'Position Avg.'),
                            selected = 'League Avg.', inline = T)),
+          
           div(id = 'four',
               div(id = 'player', 
                   selectInput(inputId = 'player_name', label = 'Interested Player', 
@@ -26,6 +27,14 @@ tabPanel(
                   selectInput(inputId = 'without', label = 'Without', 
                               choices = NULL, multiple = T))
           ),
+          # div(
+          #   id = 'checkBox',
+          #   checkboxGroupInput(inputId = 'possBox', label = 'Poss. to Include',
+          #                      choices = c('Low', 'Medium', 'High', 'Very High'),
+          #                      selected = c('Medium', 'High', 'Very High'),
+          #                      inline = T)
+          # ),
+          
           div(id = 'buttonPlot',
               actionButton(inputId = 'plot', label = 'Plot', width = 200)),
           

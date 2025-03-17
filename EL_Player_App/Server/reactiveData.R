@@ -3,6 +3,7 @@
 traditional_off_agg <- reactive({
   read.csv('Data/player_traditional_off_df_20250315.csv') %>%
     select(-X) %>%
+    filter(PLAYER != 'nan') %>%
     mutate(
       PHASE = as.factor(PHASE),
       CODETEAM = as.factor(CODETEAM),
@@ -13,34 +14,38 @@ traditional_off_agg <- reactive({
 advanced_off_agg <- reactive({
   read.csv('Data/player_advanced_off_df_20250315.csv') %>%
     select(-X) %>%
+    filter(PLAYER != 'nan') %>%
     mutate(
       PHASE = as.factor(PHASE),
       CODETEAM = as.factor(CODETEAM),
       PLAYER = as.factor(PLAYER),
-      poss_val_cat = factor(poss_val_cat,
-                            c('Low', 'Medium', 'High', 'Very High', 'All'))
+      poss_val_cat = factor(poss_val_cat, ordered = T,
+                            levels = c('Low', 'Medium', 'High', 'Very High', 'All'))
     ) %>%
     rename(POSS = raw_USG,
            POSS_IMP = poss_val_cat) %>%
-    arrange(PLAYER, -POSS)
+    arrange(PLAYER, POSS_IMP)
 })
 
 scoring_off_agg <- reactive({
   read.csv('Data/player_scoring_off_df_20250315.csv') %>%
+    filter(PLAYER != 'nan') %>%
     select(-X) %>%
     mutate(
       PHASE = as.factor(PHASE),
       CODETEAM = as.factor(CODETEAM),
       PLAYER = as.factor(PLAYER),
-      poss_val_cat = factor(poss_val_cat,
-                            c('Low', 'Medium', 'High', 'Very High'))
+      poss_val_cat = factor(poss_val_cat, ordered = T,
+                            levels = c('Low', 'Medium', 'High', 'Very High'))
     ) %>%
-    rename(POSS_IMP = poss_val_cat)
+    rename(POSS_IMP = poss_val_cat) %>%
+    arrange(PLAYER, POSS_IMP)
 })
 
 byzone_off_agg <- reactive({
   read.csv('Data/player_byzone_off_df_20250315.csv') %>%
     select(-X) %>%
+    filter(PLAYER != 'nan') %>%
     mutate(
       PHASE = as.factor(PHASE),
       CODETEAM = as.factor(CODETEAM),
