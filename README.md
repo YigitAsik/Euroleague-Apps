@@ -2,9 +2,7 @@
 
 This repo includes some of the source code for the Euroleague Shiny Apps that I currently have:
 [Team Stats App](https://hooplytics.shinyapps.io/EL_Team_Stats/) consist of team-level offense and defense stats with four tabs: Traditional, Advanced, Scoring, By Zone.
-[Player Stats App](https://hooplytics.shinyapps.io/EL_Player_Stats/) consist of player-level offense and defense stats with the same tabs.
-
-Tools that I included in the earlier versions, such as xPTS and Hex-binned shot-chart, will be added.
+[Player Stats App](https://hooplytics.shinyapps.io/EL_Player_Stats/) consist of player-level offense and defense stats with the same tabs with [Team Stats App](https://hooplytics.shinyapps.io/EL_Team_Stats/). However, there is also a *Tools* tab, which includes expected points (xPTS) and hex-binned shot chart tools.
 
 ## Tabs
 
@@ -23,3 +21,9 @@ Provides aggregated data over *possession importance*, while providing additiona
 ### By Zone
 
 Provides aggregated data over shot zones and shot areas.
+
+### Tools
+
+Currently only available for players: 
+1. Expected points (xPTS), which allows the user to see how many points a player adds per shot attempt compared to the league average player.
+2. Hex-binned shot chart,  quantifies the shot frequency with the size of the hexagons while colors express relative percentage versus the league average (position average, team average -- depending on your selection). With the selection of On With and/or Without features, you can restrict the plot to shots with certain players on the court and/or off the court.
