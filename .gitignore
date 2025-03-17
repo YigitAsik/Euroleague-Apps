@@ -1,16 +1,16 @@
 EL_Team_App/Data/
-EL_Team_App/.Rproj.user/
-EL_Team_App/rsconnect/
-EL_Team_App/.Rhistory/
-EL_Team_App/Server/.Rhistory/
+EL_Team_App/.Rproj.user
+EL_Team_App/rsconnect
+EL_Team_App/.Rhistory
+EL_Team_App/Server/.Rhistory
 EL_Team_App/www/.DS_Store
 EL_Team_App/EL_Team_App.Rproj
 .Rproj.user
 
 EL_Player_App/Data/
-EL_Player_App/.Rproj.user/
-EL_Player_App/rsconnect/
-EL_Player_App/.Rhistory/
-EL_Player_App/Server/.Rhistory/
+EL_Player_App/.Rproj.user
+EL_Player_App/rsconnect
+EL_Player_App/.Rhistory
+EL_Player_App/Server/.Rhistory
 EL_Player_App/www/.DS_Store
 EL_Player_App/EL_Player_App.Rproj

@@ -105,6 +105,7 @@ output$xPTS <- renderDataTable({
 
 observe({
   req(players())
+  req(input$possBox)
   
   updateSelectInput(session, inputId = 'player_name',
                     choices = players(), selected = 'LARKIN, SHANE - EFS')
@@ -115,11 +116,13 @@ observe({
 })
 
 observeEvent(input$plot, {
+  
   ### Against LA ###
   
   if (input$against == 'League Avg.') {
     
     la <- shots_data() %>%
+      filter(poss_val_cat %in% input$possBox) %>%
       group_by(SHOT_ZONE_BASIC, SHOT_ZONE_AREA_2, SHOT_ZONE_DIST) %>%
       summarize(
         fga = n(),
@@ -136,7 +139,8 @@ observeEvent(input$plot, {
     if ((!is.null(input$without)) & (!is.null(input$with))) {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name) %>%
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox) %>%
         filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
                        Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   any_vars(. %in% input$with)) %>%
@@ -147,7 +151,8 @@ observeEvent(input$plot, {
     } else if (!is.null(input$without)) {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name) %>%
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox) %>%
         filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
                        Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   all_vars(!. %in% input$without))
@@ -155,15 +160,16 @@ observeEvent(input$plot, {
     } else if (!is.null(input$with)) {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name) %>%
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox) %>%
         filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
                        Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   any_vars(. %in% input$with))
     } else {
       
       player_shots <-player_shots <- shots_data() %>%
-        # mutate(players_caps = paste0(LastName, ', ', FirstName)) %>%
-        filter(PLAYER_TEAM == input$player_name)
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox)
     }
     
     player_avgs <- player_shots %>%
@@ -204,13 +210,14 @@ observeEvent(input$plot, {
     
   }
   
-### Against TA ###
+  ### Against TA ###
   else if (input$against == 'Team Avg.') {
     
     if ((!is.null(input$without)) & (!is.null(input$with))) {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name) %>%
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox) %>%
         filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
                        Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   any_vars(. %in% input$with)) %>%
@@ -221,7 +228,8 @@ observeEvent(input$plot, {
     } else if (!is.null(input$without)) {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name) %>%
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox) %>%
         filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
                        Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   all_vars(!. %in% input$without))
@@ -229,14 +237,16 @@ observeEvent(input$plot, {
     } else if (!is.null(input$with)) {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name) %>%
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox) %>%
         filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
                        Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   any_vars(. %in% input$with))
     } else {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name)
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox)
     }
     
     tm <- shots_data() %>%
@@ -246,7 +256,8 @@ observeEvent(input$plot, {
       unique()
     
     ta <- shots_data() %>%
-      filter(CODETEAM == tm) %>%
+      filter(CODETEAM == tm 
+             & poss_val_cat %in% input$possBox) %>%
       group_by(SHOT_ZONE_BASIC, SHOT_ZONE_AREA_2, SHOT_ZONE_DIST) %>%
       summarize(
         fga = n(),
@@ -303,7 +314,8 @@ observeEvent(input$plot, {
     if ((!is.null(input$without)) & (!is.null(input$with))) {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name) %>%
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox) %>%
         filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
                        Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   any_vars(. %in% input$with)) %>%
@@ -314,7 +326,8 @@ observeEvent(input$plot, {
     } else if (!is.null(input$without)) {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name) %>%
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox) %>%
         filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
                        Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   all_vars(!. %in% input$without))
@@ -322,14 +335,16 @@ observeEvent(input$plot, {
     } else if (!is.null(input$with)) {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name) %>%
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox) %>%
         filter_at(vars(Lineup_A1, Lineup_A2, Lineup_A3, Lineup_A4, Lineup_A5,
                        Lineup_B1, Lineup_B2, Lineup_B3, Lineup_B4, Lineup_B5),
                   any_vars(. %in% input$with))
     } else {
       
       player_shots <- shots_data() %>%
-        filter(PLAYER_TEAM == input$player_name)
+        filter(PLAYER_TEAM == input$player_name 
+               & poss_val_cat %in% input$possBox)
     }
     
     player_avgs <- player_shots %>%
@@ -347,7 +362,8 @@ observeEvent(input$plot, {
       unique()
     
     pa <- shots_data() %>%
-      filter(Position == position) %>%
+      filter(Position == position 
+             & poss_val_cat %in% input$possBox) %>%
       group_by(SHOT_ZONE_BASIC, SHOT_ZONE_AREA_2, SHOT_ZONE_DIST) %>%
       summarize(
         fga = n(),

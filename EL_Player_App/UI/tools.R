@@ -11,6 +11,14 @@ tabPanel(
         tabPanel(
           'Shot-chart',
           
+          div(
+            id = 'checkBox',
+            checkboxGroupInput(inputId = 'possBox', label = 'Poss. to Include',
+                               choices = c('Low', 'Medium', 'High', 'Very High'),
+                               selected = c('Medium', 'High', 'Very High'),
+                               inline = T)
+            ),
+          
           div(id = 'relativeTo',
               radioButtons(inputId = 'against', label = 'Relative to: ', 
                            choices = c('League Avg.', 'Team Avg.', 'Position Avg.'),
@@ -27,13 +35,6 @@ tabPanel(
                   selectInput(inputId = 'without', label = 'Without', 
                               choices = NULL, multiple = T))
           ),
-          # div(
-          #   id = 'checkBox',
-          #   checkboxGroupInput(inputId = 'possBox', label = 'Poss. to Include',
-          #                      choices = c('Low', 'Medium', 'High', 'Very High'),
-          #                      selected = c('Medium', 'High', 'Very High'),
-          #                      inline = T)
-          # ),
           
           div(id = 'buttonPlot',
               actionButton(inputId = 'plot', label = 'Plot', width = 200)),

@@ -81,6 +81,10 @@ p {
   margin-top: 10px;
 }
 
+#possBox {
+  margin-top: 10px;
+}
+
 #relativeTo {
   display: flex;
   flex-direction: column;
