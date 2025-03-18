@@ -115,14 +115,22 @@ observe({
                     choices = players())
 })
 
+selected_player <- reactiveVal('LARKIN, SHANE - EFS')
+
 observeEvent(input$plot, {
   
+  selected_player(input$player_name)
+  
   ### Against LA ###
+  
   
   if (input$against == 'League Avg.') {
     
     la <- shots_data() %>%
-      filter(poss_val_cat %in% input$possBox) %>%
+      filter(
+        poss_val_cat %in% input$possBox,
+        PLAYER_TEAM != input$player_name
+      ) %>%
       group_by(SHOT_ZONE_BASIC, SHOT_ZONE_AREA_2, SHOT_ZONE_DIST) %>%
       summarize(
         fga = n(),
@@ -200,7 +208,7 @@ observeEvent(input$plot, {
           alpha = .75,
           size = 5
         ) +
-        labs(title = paste(input$player_name),
+        labs(title = paste(selected_player()),
              subtitle = '2024-25 Regular Season') +
         annotate('text', x = 0, y = 0.6, label = '@Hooplytics',
                  size = 8)
@@ -257,6 +265,7 @@ observeEvent(input$plot, {
     
     ta <- shots_data() %>%
       filter(CODETEAM == tm 
+             & PLAYER_TEAM != input$player_name
              & poss_val_cat %in% input$possBox) %>%
       group_by(SHOT_ZONE_BASIC, SHOT_ZONE_AREA_2, SHOT_ZONE_DIST) %>%
       summarize(
@@ -298,7 +307,7 @@ observeEvent(input$plot, {
           alpha = .75,
           size = 5
         ) +
-        labs(title = paste(input$player_name),
+        labs(title = paste(selected_player()),
              subtitle = '2024-25 Regular Season') +
         annotate('text', x = 0, y = 0.6, label = '@Hooplytics',
                  size = 8)
@@ -363,6 +372,7 @@ observeEvent(input$plot, {
     
     pa <- shots_data() %>%
       filter(Position == position 
+             & PLAYER_TEAM != input$player_name
              & poss_val_cat %in% input$possBox) %>%
       group_by(SHOT_ZONE_BASIC, SHOT_ZONE_AREA_2, SHOT_ZONE_DIST) %>%
       summarize(
@@ -396,7 +406,7 @@ observeEvent(input$plot, {
           alpha = .75,
           size = 5
         ) +
-        labs(title = paste(input$player_name),
+        labs(title = paste(selected_player()),
              subtitle = '2024-25 Regular Season') +
         annotate('text', x = 0, y = 0.6, label = '@Hooplytics',
                  size = 8)

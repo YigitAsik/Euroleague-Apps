@@ -65,7 +65,8 @@ xPTS_data <- reactive({
     ) %>% 
     mutate(
       PLAYER = as.factor(PLAYER),
-      TEAM = as.factor(TEAM)
+      TEAM = as.factor(TEAM),
+      tot_xPTS = round(tot_xPTS, 1)
     ) %>%
     arrange(-PTS_Added) %>%
     rename(
