@@ -6,6 +6,10 @@ This repo includes some of the source code for the Euroleague Shiny Apps that I 
 
 ## Tabs
 
+### Four Factors
+
+Dean Oliver's four factors in aggregate and by poss importance.
+
 ### Traditional
 
 Provides totals of traditional metrics such as points, assists etc. GP (games played) allows you to calculate *per game* stats easily.
