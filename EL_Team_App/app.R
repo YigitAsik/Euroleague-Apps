@@ -17,10 +17,14 @@ ui <- fluidPage(
   navbarPage(
     title = tagList(
       div(id = 'nameApp', h3('EuroLeague Shiny App')),
-      div(id = 'information', p(paste('Most recent update: ', '2025-03-15'))),
+      div(id = 'information', p(paste('Most recent update: ', '2025-05-13'))),
       div(id = 'signature', p('@Hooplytics'))
     ),
     
+    tabPanel(
+      'Four Factors',
+      source('UI/ff.R', local = TRUE, encoding = 'UTF-8')$value
+    ),
     tabPanel(
       'Offense',
       source('UI/offense.R', local = TRUE, encoding = 'UTF-8')$value

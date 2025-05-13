@@ -13,11 +13,21 @@ ui <- fluidPage(
     tags$link(rel = 'stylesheet', type = 'text/css', href = 'shinycss.css')
   ),
   
+  tags$head(HTML("
+<script async src='https://www.googletagmanager.com/gtag/js?id=G-9EW9TWZLN0'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9EW9TWZLN0');
+</script>
+")),
+  
   # Navbar
   navbarPage(
     title = tagList(
       div(id = 'nameApp', h3('EuroLeague Shiny App')),
-      div(id = 'information', p(paste('Most recent update: ', '2025-03-15'))),
+      div(id = 'information', p(paste('Most recent update: ', '2025-04-14'))),
       div(id = 'signature', p('@Hooplytics'))
     ),
     

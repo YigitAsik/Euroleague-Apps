@@ -81,6 +81,27 @@ output$team_off_byzone <- renderDataTable({
   
 })
 
+##### Team: FOUR FACTORS #####
+
+output$team_ff <- renderDataTable({
+  
+  
+  datatable(
+    ff_agg(),
+    class = 'display compact order-column', # no wrap
+    filter = 'top',
+    rownames = F,
+    
+    options = list(
+      paging = T,
+      pageLength = 20,
+      autoWidth = T,
+      scrollX = T
+    )
+  )
+  
+})
+
 ##### xPTS: PTS ABOVE EXPECTED #####
 
 # output$xPTS <- renderDataTable({

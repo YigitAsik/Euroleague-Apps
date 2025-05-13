@@ -195,10 +195,10 @@ observeEvent(input$plot, {
         geom_label(
           data = player_avgs %>%
             filter(
-              SHOT_ZONE_BASIC %in% c('Above the Break 3', 'Corner 3') |
-                (SHOT_ZONE_BASIC %in% c('Mid-Range')) & (SHOT_ZONE_AREA_2 %in% c('Left Center', 'Center', 'Right Center')) |
-                (SHOT_ZONE_BASIC == 'Paint (non-RA)') & (SHOT_ZONE_AREA_2 %in% c('Left', 'Center', 'Right')) |
-                (SHOT_ZONE_BASIC == 'Restricted Area') & (SHOT_ZONE_AREA_2 == 'Center')
+              SHOT_ZONE_BASIC %in% c('Above the Break 3', 'Corner 3')
+                # (SHOT_ZONE_BASIC %in% c('Mid-Range')) & (SHOT_ZONE_AREA_2 %in% c('Left Center', 'Center', 'Right Center')) |
+                # (SHOT_ZONE_BASIC == 'Paint (non-RA)') & (SHOT_ZONE_AREA_2 %in% c('Left', 'Center', 'Right')) |
+                # (SHOT_ZONE_BASIC == 'Restricted Area') & (SHOT_ZONE_AREA_2 == 'Center')
             ),
           aes(
             x = x,
@@ -294,10 +294,10 @@ observeEvent(input$plot, {
         geom_label(
           data = player_avgs %>%
             filter(
-              SHOT_ZONE_BASIC %in% c('Above the Break 3', 'Corner 3') |
-                (SHOT_ZONE_BASIC %in% c('Mid-Range')) & (SHOT_ZONE_AREA_2 %in% c('Left Center', 'Center', 'Right Center')) |
-                (SHOT_ZONE_BASIC == 'Paint (non-RA)') & (SHOT_ZONE_AREA_2 %in% c('Left', 'Center', 'Right')) |
-                (SHOT_ZONE_BASIC == 'Restricted Area') & (SHOT_ZONE_AREA_2 == 'Center')
+              SHOT_ZONE_BASIC %in% c('Above the Break 3', 'Corner 3')
+                # (SHOT_ZONE_BASIC %in% c('Mid-Range')) & (SHOT_ZONE_AREA_2 %in% c('Left Center', 'Center', 'Right Center')) |
+                # (SHOT_ZONE_BASIC == 'Paint (non-RA)') & (SHOT_ZONE_AREA_2 %in% c('Left', 'Center', 'Right')) |
+                # (SHOT_ZONE_BASIC == 'Restricted Area') & (SHOT_ZONE_AREA_2 == 'Center')
             ),
           aes(
             x = x,
@@ -393,10 +393,10 @@ observeEvent(input$plot, {
         geom_label(
           data = player_avgs %>%
             filter(
-              SHOT_ZONE_BASIC %in% c('Above the Break 3', 'Corner 3') |
-                (SHOT_ZONE_BASIC %in% c('Mid-Range')) & (SHOT_ZONE_AREA_2 %in% c('Left Center', 'Center', 'Right Center')) |
-                (SHOT_ZONE_BASIC == 'Paint (non-RA)') & (SHOT_ZONE_AREA_2 %in% c('Left', 'Center', 'Right')) |
-                (SHOT_ZONE_BASIC == 'Restricted Area') & (SHOT_ZONE_AREA_2 == 'Center')
+              SHOT_ZONE_BASIC %in% c('Above the Break 3', 'Corner 3')
+                # (SHOT_ZONE_BASIC %in% c('Mid-Range')) & (SHOT_ZONE_AREA_2 %in% c('Left Center', 'Center', 'Right Center')) |
+                # (SHOT_ZONE_BASIC == 'Paint (non-RA)') & (SHOT_ZONE_AREA_2 %in% c('Left', 'Center', 'Right')) |
+                # (SHOT_ZONE_BASIC == 'Restricted Area') & (SHOT_ZONE_AREA_2 == 'Center')
             ),
           aes(
             x = x,

@@ -37,17 +37,7 @@ tabPanel(
           hr(),
           plotOutput('Hexchart', width = '100%')
          )
-        
-        # ,tabPanel(
-        #   'xPTS',
-        # 
-        #   dataTableOutput('xPTS'),
-        # 
-        #   tags$style(type = 'text/css', '.noUi-connect {background: #014cfd;}'),
-        #   tags$head(tags$style('#xPTS thead th{background-color: #014cfd; color: #fffffa;')),
-        #   tags$head(tags$style('#xPTS tbody td {border-top: 0.1px solid grey;border-left: 0.1px solid grey;border-right: 0.1px solid grey;}'))
-        # )
+        )
       )
     )
   )
-)

@@ -1,14 +1,14 @@
 # TEAM OFF STATS
 
 traditional_off_agg <- reactive({
-  read.csv('Data/traditional_off_df_20250315.csv') %>%
+  read.csv('Data/traditional_off_df_20250414.csv') %>%
     select(-X) %>%
     mutate(CODETEAM = as.factor(CODETEAM)) %>%
     arrange(CODETEAM)
 })
 
 advanced_off_agg <- reactive({
-  read.csv('Data/advanced_off_df_20250315.csv') %>%
+  read.csv('Data/advanced_off_df_20250414.csv') %>%
     select(-X) %>%
     mutate(POSS_IMP = factor(POSS_IMP,
                              c('Low', 'Medium', 'High', 'Very High', 'All')),
@@ -17,7 +17,7 @@ advanced_off_agg <- reactive({
 })
 
 scoring_off_agg <- reactive({
-  read.csv('Data/scoring_off_df_20250315.csv') %>%
+  read.csv('Data/scoring_off_df_20250414.csv') %>%
     select(-X) %>%
     mutate(POSS_IMP = factor(POSS_IMP,
                              c('Low', 'Medium', 'High', 'Very High')),
@@ -26,7 +26,7 @@ scoring_off_agg <- reactive({
 })
 
 byzone_off_agg <- reactive({
-  read.csv('Data/byzone_off_df_20250315.csv') %>%
+  read.csv('Data/byzone_off_df_20250414.csv') %>%
     select(-X) %>%
     mutate(SHOT_ZONE_BASIC = as.factor(SHOT_ZONE_BASIC),
            SHOT_ZONE_AREA = as.factor(SHOT_ZONE_AREA),
@@ -34,10 +34,22 @@ byzone_off_agg <- reactive({
     arrange(CODETEAM)
 })
 
+ff_agg <- reactive({
+  read.csv('Data/ff_teams_20250508.csv') %>%
+    select(-X) %>%
+    mutate(POSS_IMP = factor(POSS_IMP,
+                             c('Low', 'Medium', 'High', 'Very High', 'All')),
+           CODETEAM = as.factor(CODETEAM),
+           FT_RATE = round(FT_RATE, 3),
+           OPP_FT_RATE = round(OPP_FT_RATE, 3)) %>%
+    filter(POSS_IMP %in% c('Low', 'Medium', 'High', 'Very High', 'All')) %>%
+    arrange(CODETEAM, desc(PHASE), desc(POSS_IMP))
+})
+
 # xPTS - PTS Above Expected
 
 # xPTS_data <- reactive({
-#   read.csv('Data/xPTS_tm_20250315.csv', stringsAsFactors = FALSE) %>% 
+#   read.csv('Data/xPTS_tm_20250414.csv', stringsAsFactors = FALSE) %>% 
 #     select(
 #       CODETEAM,
 #       tot_FGA, tot_PTS, tot_xPTS, eFG, xeFG, SM, PTS_Added
@@ -61,7 +73,7 @@ byzone_off_agg <- reactive({
 # })
 
 shots_data <- reactive({
-  read.csv('Data/df_fin_shots_20250315.csv') %>%
+  read.csv('Data/df_fin_shots_20250414.csv') %>%
     filter(!is.na(shot_value)) %>%
     select(
       Gamecode, CODETEAM, PLAYER_ID, PLAYTYPE.x, REMAINING_TIME_IN_SECS,
@@ -79,13 +91,13 @@ shots_data <- reactive({
 })
 
 players <- reactive({
-  read.csv('Data/df_fin_shots_20250315.csv') %>%
+  read.csv('Data/df_fin_shots_20250414.csv') %>%
     pull(PLAYER_TEAM) %>%
     unique() %>% sort()
 })
 
 teams <- reactive({
-  read.csv('Data/df_fin_shots_20250315.csv') %>%
+  read.csv('Data/df_fin_shots_20250414.csv') %>%
     pull(CODETEAM) %>%
     unique() %>% sort()
 })
